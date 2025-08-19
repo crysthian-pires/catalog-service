@@ -2,6 +2,10 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import { auth } from "./middlewares/auth";
+import products from "./routes/products";
+import categories from "./routes/categories";
+import { errorHandler } from "./middlewares/error";
 
 const app = express();
 app.use(helmet());
@@ -11,6 +15,12 @@ app.use(morgan("dev"));
 
 app.get("/_health", (_req, res) => res.status(200).json({ status: "ok" }));
 app.get("/_ready", (_req, res) => res.status(200).json({ ready: true }));
+
+app.use(auth);
+app.use("/products", products);
+app.use("/categories", categories);
+
+app.use(errorHandler);
 
 const port = Number(process.env.PORT ?? 3002);
 let server: import("http").Server | undefined;
