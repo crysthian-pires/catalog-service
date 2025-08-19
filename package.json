@@ -2,7 +2,11 @@
   "name": "catalog-services",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22 <23"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
@@ -21,6 +25,7 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "jose": "^6.0.12",
+    "morgan": "^1.10.1",
     "pino": "^9.9.0",
     "pino-http": "^10.5.0",
     "slugify": "^1.6.6",
@@ -28,8 +33,10 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^24.3.0",
     "@types/supertest": "^6.0.3",
     "cross-env": "^10.0.0",
