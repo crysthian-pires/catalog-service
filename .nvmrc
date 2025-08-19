@@ -1,0 +1,2 @@
+echo "22" > .nvmrc
+node -e "let p=require('./package.json');p.engines={...(p.engines||{}),node:'>=22'};require('fs').writeFileSync('package.json',JSON.stringify(p,null,2));console.log('ok');"

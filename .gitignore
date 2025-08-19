@@ -1,0 +1,33 @@
+# deps e build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# env
+.env
+.env.test
+.env.local
+.env.development
+.env.production
+.env.test.local
+
+# cobertura e caches
+coverage/
+.eslintcache
+
+# IDE / SO
+.DS_Store
+.idea/
+.vscode/
+
+# logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Prisma
+prisma/*.db
+prisma/*.sqlite
+src/generated/prisma
+
