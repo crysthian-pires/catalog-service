@@ -2,10 +2,10 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import { auth } from "./middlewares/auth";
-import products from "./routes/products";
-import categories from "./routes/categories";
-import { errorHandler } from "./middlewares/error";
+import { auth } from "./middlewares/auth.js";
+import products from "./routes/products.js";
+import categories from "./routes/categories.js";
+import { errorHandler } from "./middlewares/error.js";
 
 const app = express();
 app.use(helmet());
