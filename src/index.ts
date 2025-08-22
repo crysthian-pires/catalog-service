@@ -3,8 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { auth } from "./middlewares/auth.js";
-import products from "./routes/products.js";
-import categories from "./routes/categories.js";
+import productsRouter from "./routes/products.routes.js";
+import categoriesRouter from "./routes/categories.routes.js";
 import { errorHandler } from "./middlewares/error.js";
 
 const app = express();
@@ -17,8 +17,8 @@ app.get("/_health", (_req, res) => res.status(200).json({ status: "ok" }));
 app.get("/_ready", (_req, res) => res.status(200).json({ ready: true }));
 
 app.use(auth);
-app.use("/products", products);
-app.use("/categories", categories);
+app.use("/products", productsRouter);
+app.use("/categories", categoriesRouter);
 
 app.use(errorHandler);
 
